@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ashmit's Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md" <a class="navbar-brand " href="WeatherApp.html">
+        <img src="tropical-storm.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        SkyCast
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav px-2">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="WeatherApp.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Cities
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" id="Chennai" href="#">Chennai</a></li>
+                        <li><a class="dropdown-item" id="Jaipur" href="#">Jaipur</a></li>
+                        <li><a class="dropdown-item" id="Kanpur" href="#">Kanpur</a></li>
+                        <li><a class="dropdown-item" id="Lucknow" href="#">Lucknow</a></li>
+                        <li><a class="dropdown-item" id="Bhopal" href="#">Bhopal</a></li>
+                        <li><a class="dropdown-item" id="Indore" href="#">Indore</a></li>
+                        <li><a class="dropdown-item" id="Shimla" href="#">Shimla</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex px-2" role="search" style="margin-left: auto;">
+                <input class="form-control me-2 border border-primary" id="user_input" type="search"
+                    placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success " type="submit" id="submit">Search</button>
+            </form>
+        </div>
+        </div>
+    </nav>
+    <h1 class="display-5 text-dark text-center">Weather in <span id="city_header">Delhi</span></h1>
+    <div class="card">
+        <div class="card-body my-0">
+            <div class="row">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card-header" id="card_temp">
+                        Temperature
+                    </div>
+                    <img src="https://media.istockphoto.com/id/1124567572/vector/cute-flat-sun-icon.jpg?s=612x612&w=0&k=20&c=_ekkRvw-dX-3Dt-jH3tG8wonvYJ1NrBHEAEDFm4cGVc="
+                        alt="" class="mx-auto d-block col-4 mb-0 w-30 h-50" style="background-color:blueviolet">
+
+                    <ul class="list-group">
+                        <li class="list-group-item li_dark"><span id="temp"></span><span>
+                                &deg;C</span></li>
+                        <li class="list-group-item ">Feels Like : <span id="feels_like"></span><span> &deg;C</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card-header" id="card_wind">
+                        Windspeed
+                    </div>
+                    <img src="https://media.istockphoto.com/id/1297153659/vector/smelling-pop-art-comic-book-cartoon-fart-cloud-flat-style-design-vector-illustration.jpg?s=612x612&w=0&k=20&c=Jg5MpR1gRKa8MNUqxOB5NTn1aSmq3gvgDTeCkdSGthY="
+                        alt="" class=" mx-auto d-block col-4 my-0 w-26 h-50">
+
+                    <ul class="list-group">
+                        <li class="list-group-item li_dark"><span id="wind_speed"></span><span> km/h</span></li>
+                        <li class="list-group-item ">Wind Degrees : <span id="wind_degrees"></span><span>&deg;</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card-header" id="card_humidity">
+                        Humidity
+                    </div>
+                    <img src="https://media.istockphoto.com/id/1290228531/vector/isolated-vector-composition-of-rain-clouds-and-raindrops-in-cartoon-style.jpg?s=612x612&w=0&k=20&c=J1OTUGLUfsMSih4H1i20RIDkTEBUpfql7KhEnp1C-EI="
+                        alt="" class=" mx-auto d-block col-4 my-0 w-50 h-50">
+                    <ul class="list-group">
+                        <li class="list-group-item li_dark"><span id="humidity"></span><span> %</span></li>
+                        <li class="list-group-item ">Clouds : <span id="cloud_pct"></span><span> %</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body my-0 px-3">
+        <table class="table mt-4 table-bordered table-hover table-striped">
+            <thead>
+            <tbody>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Wind Speed</th>
+                <th>Humidity</th>
+                <th>Clouds</th>
+                </thead>
+                <tr id="ahmedabad">
+                    <td>Ahmedabad</td>
+                    <td><span id="atemp"></span><span> &deg;C</span></td>
+                    <td><span id="awind"></span><span> km/h</span></td>
+                    <td><span id="ahumidity"></span><span> %</span></td>
+                    <td><span id="acloud"></span><span> %</span></td>
+                </tr>
+
+                <tr id="hyderabad">
+                    <td>Hyderabad</td>
+                    <td><span id="htemp"></span><span> &deg;C</span></td>
+                    <td><span id="hwind"></span><span> km/h</span></td>
+                    <td><span id="hhumidity"></span><span> %</span></td>
+                    <td><span id="hcloud"></span><span> %</span></td>
+                </tr>
+                <tr id="bangalore">
+                    <td>Bangalore</td>
+                    <td><span id="btemp"></span><span> &deg;C</span></td>
+                    <td><span id="bwind"></span><span> km/h</span></td>
+                    <td><span id="bhumidity"></span><span> %</span></td>
+                    <td><span id="bcloud"></span><span> %</span></td>
+                </tr>
+                <tr id="indore">
+                    <td>Indore</td>
+                    <td><span id="itemp"></span><span> &deg;C</span></td>
+                    <td><span id="iwind"></span><span> km/h</span></td>
+                    <td><span id="ihumidity"></span><span> %</span></td>
+                    <td><span id="icloud"></span><span> %</span></td>
+                </tr>
+                <tr id="amritsar">
+                    <td>Amritsar</td>
+                    <td><span id="amtemp"></span><span> &deg;C</span></td>
+                    <td><span id="amwind"></span><span> km/h</span></td>
+                    <td><span id="amhumidity"></span><span> %</span></td>
+                    <td><span id="amcloud"></span><span> %</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<!-- #e3f2fd; -->
+<!-- https://media.istockphoto.com/id/1124567572/vector/cute-flat-sun-icon.jpg?s=612x612&w=0&k=20&c=_ekkRvw-dX-3Dt-jH3tG8wonvYJ1NrBHEAEDFm4cGVc= -->
